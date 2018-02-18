@@ -4,7 +4,7 @@ class CreateTweets < ActiveRecord::Migration
   		t.string :content
   		t.integer :user_id 
   		
-  		t.timestamps
+  		t.timestamps null: true
   	end 
   end
 end
