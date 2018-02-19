@@ -2,13 +2,16 @@ class UsersController < ApplicationController
 
 	get '/users/:slug' do 
 		@user = User.find_by_slug(slug)
-
 		erb :'/users/show'
 	end 
 
 	# Sign Up 
 	get '/signup' do 
-		erb :'/users/create_user'
+		if !logged_in?
+		  erb :'/users/create_user'
+		else 
+		  redirect to '/tweets'
+		end 
 	end 
 
 	post '/signup' do 
